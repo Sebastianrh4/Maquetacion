@@ -1,0 +1,12 @@
+.footer{
+    background-color: #001849;
+    padding: 20px;
+}
+
+.contenedor-footer{
+    overflow: hidden ;
+}
+
+.contenedor-footer img{
+    width: 100%;
+}
