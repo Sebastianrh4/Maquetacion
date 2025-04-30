@@ -43,7 +43,7 @@ h2{
     gap: 20px;
 }
 
-.formGroup{
+.form-group{
     display: flex;
     flex-direction: column;
 }

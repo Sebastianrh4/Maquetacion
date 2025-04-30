@@ -8,150 +8,171 @@
     <div>
       <p>Apreciado Usuario de BetPlay, recuerde que debe registrar sus datos de manera completa, correcta y real para evitar posibles inconvenientes en los procesos de validación de identidad y retiro de ganancias.</p>
     </div>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
       <h2>Información personal</h2>
-    <form class="formGrid">
-      <div class="formGroup">
-        <label for="lblTipoDocumento">* Tipo de documento</label>
-        <select id="">
-          <option> Cedula de ciudadania</option>
-        </select>
-      </div>
+      <div class="formGrid">
+        <div class="form-group">
+          <label for="lblTipoDocumento">* Tipo de documento</label>
+          <select formControlName="tipoDocumento">
+            <option value="CC"> Cedula de ciudadania</option>
+            <option value="CE"> Cedula de extrangeria</option>
+            <option value="PEP"> Permiso Especial de Permanencia</option>
+            <option value="PPT"> Permiso de Protección Temporal</option>    
+          </select>
+        </div>
 
-      <div class="formGroup">
-        <label for="lblnumeroIdentificacion">* Número de identificación</label>
-        <input type="number">
-      </div>
+        <div class="form-group">
+          <label for="lblnumeroIdentificacion">* Número de identificación</label>
+          <input type="text" formControlName="numeroIdentificacion">
+        </div>
 
-      <div class="formGroup">
-        <label for="lblFecha">* Fecha de expedición</label>
-        <input type="text">
-      </div>
+        <div class="form-group">
+          <label for="lblFecha">* Fecha de expedición</label>
+          <input type="date" formControlName="fechaExpedicion">
+        </div>
 
-      <div class="formGroup">
-        <label for="lblLugarExp">* Lugar de expedición</label>
-        <input type="text">
-      </div>
+        <div class="form-group">
+          <label for="lblLugarExp">* Lugar de expedición</label>
+          <select id="" formControlName="lugarExpedicion">
+            <option selected disabled> Seleccione</option>
+            <option [value]="city.name" *ngFor="let city of listaCiudades">
+              {{ city.name }}
+            </option>
+          </select>
+        </div>
 
-      <div class="formGroup">
-        <label for="lblFechaNacimiento">* Fecha de nacimiento</label>
-        <input type="text">
-      </div>
+        <div class="form-group">
+          <label for="lblFechaNacimiento">* Fecha de nacimiento</label>
+          <input type="date" formControlName="fechaNacimiento">
+        </div>
 
-      
-      <div class="formGroup">
-        <label for="lblPrimerNombre">* Primer nombre</label>
-        <input type="text">
-      </div>
+        
+        <div class="form-group">
+          <label for="lblPrimerNombre">* Primer nombre</label>
+          <input type="text" formControlName="primerNombre">
+        </div>
 
-      <div class="formGroup">
-        <label for="lblSegundoNombre">Segundo nombre</label>
-        <input type="text">
-      </div>
-      
-      
-      <div class="formGroup">
-        <label for="lblPrimerApellido">* Primer Apellido</label>
-        <input type="text">
-      </div>
+        <div class="form-group">
+          <label for="lblSegundoNombre">Segundo nombre</label>
+          <input type="text" formControlName="segundoNombre">
+        </div>
+        
+        
+        <div class="form-group">
+          <label for="lblPrimerApellido">* Primer Apellido</label>
+          <input type="text" formControlName="primerApellido">
+        </div>
 
-      <div class="formGroup">
-        <label for="lblSegundoApellido">Segundo Apellido</label>
-        <input type="text">
+        <div class="form-group">
+          <label for="lblSegundoApellido">Segundo Apellido</label>
+          <input type="text" formControlName="segundoApellido">
+        </div>
       </div>
-    </form>
-    <h2>Información de contacto</h2>
-    <form class="formGrid">
-      <div class="formGroup">
-        <label>* Nacionalidad</label>
-        <input type="text">
-      </div>
+      <h2>Información de contacto</h2>
+      <div class="formGrid">
+        <div class="form-group">
+          <label>* Nacionalidad</label>
+          <input formControlName="nacionalidad" type="text" readonly>
+        </div>
+ 
+        <div class="form-group">
+          <label>* Género</label>
+          <select formControlName="genero">
+            <option selected disabled> Seleccione Genero</option>
+            <option value="F"> Femenino</option>
+            <option value="M"> Masculino</option>
+          </select>
+        </div>
 
-      <div class="formGroup">
-        <label>* Género</label>
-        <input type="text">
-      </div>
+        <div class="form-group">
+          <label>* Teléfono móvil</label>
+          <input type="text" formControlName="telefono">
+        </div>
 
-      <div class="formGroup">
-        <label>* Teléfono móvil</label>
-        <input type="text">
-      </div>
+        <div class="form-group">
+          <label>* Correo electrónico</label>
+          <input type="text" formControlName="correo">
+        </div>
 
-      <div class="formGroup">
-        <label>* Correo electrónico</label>
-        <input type="text">
-      </div>
+        <div class="form-group">
+          <label>* Dirección de residencia</label>
+          <input type="text" formControlName="direccion">
+        </div>
 
-      <div class="formGroup">
-        <label>* Dirección de residencia</label>
-        <input type="text">
+        <div class="form-group">
+          <label>* Municipio</label>
+          <select id="" formControlName="municipio">
+            <option selected disabled> Seleccione</option>
+            <option [value]="city.name" *ngFor="let city of listaCiudades">
+              {{ city.name }}
+            </option>
+          </select>
+        </div>
       </div>
+  
+      <h2>Información de seguridad</h2>
+      <div class="formGrid">
+        <div class="form-group">
+          <label>* Contraseña</label>
+          <input type="password" formControlName="contrasena">
+        </div>
 
-      <div class="formGroup">
-        <label>* Municipio</label>
-        <input type="text">
-      </div>
-    </form>
-    <h2>Información de seguridad</h2>
-    <form class="formGrid">
-      <div class="formGroup">
-        <label>* Contraseña</label>
-        <input type="text">
-      </div>
+        <div class="form-group">
+          <label>* Confirmar contraseña</label>
+          <input type="password" formControlName="confirmarContrasena">
+        </div>
+        
+<!--
+        <div class="form-group">
+          <label>* ¿Has sido declarado interdicto?</label>
+          <select>
+            <option >Si</option>
+            <option >No</option>
+          </select>
+        </div>
 
-      <div class="formGroup">
-        <label>* Confirmar contraseña</label>
-        <input type="text">
+        <div class="form-group">
+          <label>¿Es usted persona expuesta políticamente (PEP)?</label>
+          <select>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+        </div>
       </div>
-
-      <div class="formGroup">
-        <label>* ¿Has sido declarado interdicto?</label>
-        <select>
-          <option>Si</option>
-          <option>No</option>
-        </select>
-      </div>
-
-      <div class="formGroup">
-        <label>¿Es usted persona expuesta políticamente (PEP)?</label>
-        <select>
-          <option>Si</option>
-          <option>No</option>
-        </select>
-      </div>
-    </form>
-    <h2>Autorizaciones</h2>
-    <div>
-      <input type="checkbox">
-      <label>Autorizo el tratamiento de mis datos personales.</label>
-    </div>
-    <div>
-      <input type="checkbox">
-      <label>Autorizo el envío de comunicaciones comerciales a mis datos de contacto.</label>
-    </div>
-    <div>
-      <input type="checkbox">
-      <label>Acepto términos y condiciones de juego, los cuales puedes consultar</label>
-    </div>
-    <div>
-      <input type="checkbox">
-      <label>Declaro que el origen y destino de mis recursos provienen y serán destinados a actividades licitas.</label>
-    </div>
-    <h2>Codigo promocional(Opcional)</h2>
-    <form class="formGrid">
+      <h2>Autorizaciones</h2>
       <div>
-        <label>Tienda</label>
-        <input type="text">
+        <input type="checkbox">
+        <label>Autorizo el tratamiento de mis datos personales.</label>
       </div>
-
       <div>
-        <label>Referido</label>
-        <input type="text">
+        <input type="checkbox">
+        <label>Autorizo el envío de comunicaciones comerciales a mis datos de contacto.</label>
       </div>
-    </form>
+      <div>
+        <input type="checkbox">
+        <label>Acepto términos y condiciones de juego, los cuales puedes consultar</label>
+      </div>
+      <div>
+        <input type="checkbox">
+        <label>Declaro que el origen y destino de mis recursos provienen y serán destinados a actividades licitas.</label>
+      </div>
+      <h2>Codigo promocional(Opcional)</h2>
+      <div class="formGrid">
+        <div>
+          <label>Tienda</label>
+          <input type="text">
+        </div>
 
-    <div class="contenedor-boton">
-      <button type="submit">Completar Registro</button>
-    </div>
+        <div>
+          <label>Referido</label>
+          <input type="text">
+        </div> -->
+      </div>
+
+      <div class="contenedor-boton">
+        <button type="submit">Completar Registro</button>
+      </div>
+  </form>
   </div>
 </div>
 <app-footer></app-footer>

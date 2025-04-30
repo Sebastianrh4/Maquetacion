@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +15,10 @@ import { FooterComponent } from './componentes/footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
